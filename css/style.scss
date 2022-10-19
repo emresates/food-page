@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&family=Silkscreen&display=swap');
+
+$dark: #1B1B21;
+$light: rgb(193, 193, 193);
+$yellow: #DAA520;
+
+// Resets
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    font-family: "Nunito";
+    font-weight: 400;
+}
+
+// NAVBAR
+nav {
+    width: 100%;
+    height: 200px;
+    background-color: black;
+    position: fixed;
+    top: -200px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px $dark;
+    transition: top .4s;
+
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $light;
+        margin: 0 40px;
+        transition: color .2s, opacity .2s;
+        opacity: 0;
+
+        i {
+            font-size: 100px;
+        }
+
+        span {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            margin-top: 8px;
+        }
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+// TOGGLE BUTTON
+.menu {
+    width: 50px;
+    height: 70px;
+    background-color: black;
+    position: fixed;
+    top: 10px;
+    left: 60px;
+    border-radius: 50px 50px 25px 25px;
+    box-shadow: 2px 2px 2px $dark, -2px -2px 2px black;
+    cursor: pointer;
+    transition: top .4s .2s;
+
+    &::before {
+        content: "";
+        width: 5px;
+        height: 220px;
+        background-color: black;
+        position: absolute;
+        top: -220px;
+        left: calc(50% - 5px);
+        box-shadow: 2px 2px black;
+    }
+}
+
+// NAVBAR ANIMATIONS
+.menu.change {
+    top: 220px;
+    transition: top .4s;
+}
+
+nav.change {
+    top: 0;
+    transition: top .4s .2s;
+}
+
+.change .link {
+    opacity: 1;
+}
+
+.change .link:nth-child(1) {
+    transition: opacity .4s .5s, color .3s;
+}
+
+.change .link:nth-child(2) {
+    transition: opacity .4s .6s, color .3s;
+}
+
+.change .link:nth-child(3) {
+    transition: opacity .4s .7s, color .3s;
+}
+
+.change .link:nth-child(4) {
+    transition: opacity .4s .8s, color .3s;
+}
+
+.change .link:nth-child(5) {
+    transition: opacity .4s .9s, color .3s;
+}
+
+// ENTRY SECTION
+.section-1 {
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .heading {
+        font-size: 130px;
+        font-weight: 900;
+        color: $light;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: 8px;
+        text-shadow: 5px 5px 5px $dark;
+    }
+
+    .icons {
+        i {
+            font-size: 300px;
+            color: $yellow;
+            position: absolute;
+            transform: translate(-50%, -50%) scale(0);
+            text-shadow: 5px 5px 5px $dark;
+            transition: transform .3s;
+        }
+
+        .change {
+            transform: translate(-50%, -50%) scale(1);
+            transition: transform .3s;
+        }
+
+
+    }
+}
+
+// CARDS SECTION
+.section-2 {
+    @extend .section-1;
+    background-color: $dark;
+    justify-content: space-between;
+    padding: 100px 0;
+
+    .cards-container {
+        width: 100%;
+        margin: 40px;
+        display: flex;
+        justify-content: space-evenly;
+
+        .card {
+            width: 450px;
+            background-color: $yellow;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 16px 16px 16px black;
+            position: relative;
+            transform: rotateY(20deg) skewX(-2deg);
+            transition: transform .3s, box-shadow .3s;
+
+            img {
+                width: 100%;
+            }
+
+            h3 {
+                font-size: 30px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 8px;
+                color: $dark;
+                margin: 20px;
+                text-shadow: 3px 3px 3px $dark ;
+            }
+
+            button {
+                width: 70%;
+                background-color: $dark;
+                color: $light;
+                border-radius: 20px;
+                font-weight: 800;
+                letter-spacing: 5px;
+                text-transform: capitalize;
+                border: none;
+                padding: 8px 0;
+                cursor: pointer;
+                box-shadow: -3px -3px 3px $dark;
+            }
+
+            &::before {
+                content: "";
+                height: 100%;
+                width: 15px;
+                background-color: #817824;
+                position: absolute;
+                top: 0;
+                left: -15px;
+                transform: skewY(45deg);
+                transform-origin: right;
+                box-shadow: -2px -2px 2px black;
+            }
+
+            &::after {
+                content: "";
+                height: 15px;
+                width: 100%;
+                background-color: #8F8317;
+                position: absolute;
+                top: -15px;
+                left: 0;
+                transform: skewX(45deg);
+                transform-origin: bottom;
+                box-shadow: -1px -1px 1px black;
+            }
+
+            &:hover {
+                transform: rotateY(20deg) skewX(-2deg) translateY(-30px);
+                box-shadow: 30px 30px 30px black;
+            }
+        }
+    }
+}
+
+// GALERY SECTION
+.section-3 {
+    height: 100vh;
+    background-color: #333;
+    padding: 50px 0;
+
+    h1 {
+        font-size: 120px;
+        font-weight: 900;
+        color: $light;
+        text-align: center;
+        text-transform: capitalize;
+        letter-spacing: 8px;
+        text-shadow: 5px 5px 5px $dark;
+    }
+
+    .gallery {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 20px;
+
+        a {
+            position: relative;
+            margin: 30px 10px;
+
+            img {
+                width: 20vw;
+                height: 13vw;
+                object-fit: cover;
+                box-shadow: 2px 2px 3px red, 5px 5px 3px blue, 9px 9px 3px green, 11px 11px 3px yellow;
+                transition: all .5s;
+            }
+
+            h3 {
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                font-size: 20px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                color: $light;
+                //for hover effect
+                width: 0%;
+                overflow: hidden;
+                transition: width .3s;
+            }
+
+            p {
+                position: absolute;
+                bottom: 35px;
+                left: 30px;
+                width: 70%;
+                font-size: 18px;
+                font-weight: 300;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: $light;
+                //for hover effect
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity .3s;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 3px;
+                background-color: $light;
+                top: 40px;
+                left: 80%;
+                //for hover effect
+                height: 0%;
+                transition: height .5s;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 3px;
+                background-color: $light;
+                top: 30%;
+                left: 16px;
+                //for hover effect
+                width: 0%;
+                transition: width .5s;
+                z-index: 2;
+            }
+
+            &:hover img {
+                box-shadow: 7px 7px 3px red, 14px 14px 3px blue, 21px 21px 3px green, 28px 28px 3px yellow;
+                filter: blur(8px);
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+
+            &:hover::before {
+                height: 80%;
+            }
+
+            &:hover::after {
+                width: 90%;
+            }
+
+            &:hover h3 {
+                width: 100%;
+                transition: width 1.5s .5s;
+            }
+
+            &:hover p {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 1s 1s;
+
+            }
+        }
+
+    }
+
+}
+
+// FOOTER SECTION
+.section-4 {
+    width: 100%;
+    height: 30vh;
+    background-color: $dark;
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 0;
+    position: relative;
+    align-items: flex-start;
+
+    .text {
+        text-transform: uppercase;
+
+        h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: $yellow;
+        }
+
+        p {
+            font-size: 20px;
+            color: #888;
+        }
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+
+        input {
+            width: 300px;
+            height: 50px;
+            padding: 15px;
+            border: 3px solid $yellow;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: $yellow;
+
+            &::placeholder {
+                color: $yellow;
+            }
+        }
+
+        button {
+            position: relative;
+            left: -48px;
+            width: 45px;
+            height: 45px;
+            background-color: #333;
+            border: none;
+            font-size: 25px;
+            color: $yellow;
+            cursor: pointer;
+        }
+    }
+
+    .copyright {
+        position: absolute;
+        bottom: 30px;
+        font-size: 25px;
+        font-weight: 200;
+        color: $yellow;
+        letter-spacing: 2px;
+        border-top: 2px solid #888;
+        padding-top: 50px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
